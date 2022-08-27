@@ -106,7 +106,7 @@ func (m *Mail) buildHTMLMessage(msg Message) (string, error) {
 	}
 
 	formattedMessage := tpl.String()
-	formattedMessage, err := m.inlineCSS(formattedMessage)
+	formattedMessage, err = m.inlineCSS(formattedMessage)
 	if err != nil {
 		return "", err
 	}
