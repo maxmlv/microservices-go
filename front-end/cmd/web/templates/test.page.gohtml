@@ -36,7 +36,7 @@
     <script>
     let brokerBtn = document.getElementById("brokerBtn");
     let authBrokerBtn = document.getElementById("authBrokerBtn");
-    let logBtn = document.getElementById("logBtn")
+    let logBtn = document.getElementById("logBtn");
     let output = document.getElementById("output");
     let sent = document.getElementById("payload");
     let recevied = document.getElementById("received");
@@ -44,14 +44,17 @@
     logBtn.addEventListener("click", function() {
         const payload = {
             action: "log",
-            data: "Some kind of data",
+            log: {
+                name: "event",
+                data: "Some kind of data",
+            }
         }
 
         const headers = new Headers();
         headers.append("Content-Type", "application/json");
 
         const body = {
-            method: 'POST',
+            method: "POST",
             body: JSON.stringify(payload),
             headers: headers,
         }
@@ -69,7 +72,7 @@
         })
         .catch((error) => {
             output.innerHTML += "<br><br>Eror: " + error;
-        })
+        })        
     })
 
     authBrokerBtn.addEventListener("click", function() {
