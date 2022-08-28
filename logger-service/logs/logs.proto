@@ -1,4 +1,4 @@
-systax = "proto3";
+syntax = "proto3";
 
 package logs;
 
